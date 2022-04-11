@@ -8,10 +8,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function Directory(props) {
 	const renderDirectoryItem = ({ item }) => {
-		let icon = <Icon name="heart" type="font-awesome" color="#f50" raised reverse />;
+		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
 		let itemStyle = styles.item;
 		if (item.gotIt) {
-			icon = <Icon name="heart" type="font-awesome" color="#000090" raised reverse />;
+			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
 		}
 		return (
