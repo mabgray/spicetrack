@@ -10,38 +10,59 @@ function Directory(props) {
 	const renderDirectoryItem = ({ item }) => {
 		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
 		let itemStyle = styles.item;
+		let expired = false;
 		if (item.gotIt) {
 			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
+
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
+			if ('startDate' in item) {
+				let currentTime = new Date().getTime();
+				currentTime = Number(currentTime);
+				let itemTime = new Date(item.startDate).getTime();
+				itemTime = Number(itemTime);
+				let difference = currentTime - itemTime;
+				console.log(currentTime);
+				console.log(itemTime);
+				console.log(difference);
+				if (difference / 31536000000 >= 1) {
+					itemStyle = Object.assign({}, itemStyle, styles.expired);
+					expired = true;
+				}
+			}
+		}
+		let expiredmsg = '';
+		if (expired) {
+			expiredmsg = 'this item has probably expired. it is over a year old.';
 		}
 		return (
 			<View>
-				<TouchableOpacity
-					onPress={() =>
-						Alert.alert(
-							item.name,
-							'Do you want to add the spice ' + item.name + '?',
-							[
-								{
-									text: 'no',
-									onPress: () => props.toggleSpice(item.id, false),
-									style: 'cancel'
-								},
-								{
-									text: 'yes',
-									onPress: () => {
-										props.toggleSpice(item.id, true);
+				<Text style={itemStyle}>
+					<ListItem title={item.name} />
+					<TouchableOpacity
+						onPress={() =>
+							Alert.alert(
+								item.name,
+								'Do you want to add the spice ' + item.name + '?',
+								[
+									{
+										text: 'no',
+										onPress: () => props.toggleSpice(item.id, false),
+										style: 'cancel'
+									},
+									{
+										text: 'yes',
+										onPress: () => {
+											props.toggleSpice(item.id, true);
+										}
 									}
-								}
-							],
-							{ cancelable: false }
-						)}
-				>
-					<Text style={itemStyle}>
-						<ListItem title={item.name} />
+								],
+								{ cancelable: false }
+							)}
+					>
 						{icon}
-					</Text>
-				</TouchableOpacity>
+					</TouchableOpacity>
+					{expiredmsg}
+				</Text>
 			</View>
 		);
 	};
@@ -93,6 +114,9 @@ const styles = StyleSheet.create({
 	},
 	itemGotIt: {
 		backgroundColor: 'green'
+	},
+	expired: {
+		backgroundColor: 'red'
 	}
 });
 
