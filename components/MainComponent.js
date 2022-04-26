@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Home from './AddSpiceComponent';
-import Directory from './DirectoryComponent';
-import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -9,6 +7,12 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import AddSpice from './AddSpiceComponent';
 import SpiceRack from './SpiceRackComponent';
+import { addSpices } from '../redux/ActionCreator';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = {
+	addSpices
+};
 
 const SpiceRackNavigator = createStackNavigator(
 	{
@@ -99,6 +103,9 @@ const MainNavigator = createDrawerNavigator(
 const AppNavigator = createAppContainer(MainNavigator);
 
 class Main extends Component {
+	componentDidMount() {
+		this.props.addSpices();
+	}
 	render() {
 		return (
 			<View
@@ -142,4 +149,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default Main;
+export default connect(null, mapDispatchToProps)(Main);

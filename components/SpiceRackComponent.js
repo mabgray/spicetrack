@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
 import { SPICES } from '../shared/spiceList';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+	return {
+		spices: state.spices
+	};
+};
 
 class SpiceRack extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			spices: SPICES
-		};
-	}
-
 	toggleSpice = (spiceId, gotIt) => {
-		let s = this.state.spices;
+		let s = this.props.spices;
 		for (let i = 0; i < s.length; i++) {
 			if (s[i].id === spiceId) {
 				s[i].gotIt = gotIt;
@@ -29,8 +29,9 @@ class SpiceRack extends Component {
 		title: 'My Spice Rack'
 	};
 	render() {
-		return <Directory spices={this.state.spices} toggleSpice={this.toggleSpice} />;
+		console.log(this.state);
+		return <Directory spices={this.props.spices} toggleSpice={this.toggleSpice} />;
 	}
 }
 
-export default SpiceRack;
+export default connect(mapStateToProps)(SpiceRack);
