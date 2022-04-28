@@ -13,13 +13,13 @@ export const spices = (
 
 		case ActionTypes.ADD_SPICE:
 			// case 'ADD_SPICE':
-			console.log('hello');
-			console.log(action.payload);
+			/* console.log('hello');
+			console.log(action.payload); */
 			let s = state.spices;
 			let spiceId = action.payload.spiceId;
 			for (let i = 0; i < s.length; i++) {
 				if (s[i].id === spiceId) {
-					console.log('hi');
+					// console.log('hi');
 					s[i].gotIt = action.payload.gotIt;
 					let startDate = new Date().toString();
 					s[i].startDate = startDate;

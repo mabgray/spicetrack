@@ -40,6 +40,9 @@ class AddSpice extends Component {
 	toggleSpice = (spiceId, gotIt) => {
 		this.props.addSpice(spiceId, gotIt);
 	};
+	static navigationOptions = {
+		title: 'Add A Spice'
+	};
 	render() {
 		return <Directory spices={this.props.spices} toggleSpice={this.toggleSpice} />;
 	}

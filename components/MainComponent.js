@@ -83,14 +83,16 @@ const MainNavigator = createDrawerNavigator(
 			screen: AddSpiceNavigator,
 			navigationOptions: {
 				drawerLabel: 'Add Spice',
-				drawerIcon: ({ tintColor }) => <Icon name="tree" type="font-awesome" size={24} color={tintColor} />
+				drawerIcon: ({ tintColor }) => (
+					<Icon name="plus-square" type="font-awesome" size={24} color={tintColor} />
+				)
 			}
 		},
 		SpiceRack: {
 			screen: SpiceRackNavigator,
 			navigationOptions: {
 				drawerLabel: 'My Spice Rack',
-				drawerIcon: ({ tintColor }) => <Icon name="heart" type="font-awesome" size={24} color={tintColor} />
+				drawerIcon: ({ tintColor }) => <Icon name="user-o" type="font-awesome" size={24} color={tintColor} />
 			}
 		}
 	},

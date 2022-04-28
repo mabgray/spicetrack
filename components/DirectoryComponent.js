@@ -5,13 +5,23 @@ import { Icon } from 'react-native-elements';
 import { View, Alert } from 'react-native';
 import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+	return {
+		spices: state.spices
+	};
+};
 
 function Directory(props) {
 	const renderDirectoryItem = ({ item }) => {
 		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
+		console.log(item);
+		console.log('hi');
 		let itemStyle = styles.item;
 		let expired = false;
 		if (item.gotIt) {
+			console.log('gotit!');
 			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
 
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
@@ -66,7 +76,8 @@ function Directory(props) {
 			</View>
 		);
 	};
-	console.log(props);
+	/* console.log(props);
+	console.log('hello'); */
 	return (
 		<View style={styles.container}>
 			<FlatList
@@ -120,4 +131,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default Directory;
+export default connect(mapStateToProps)(Directory);
