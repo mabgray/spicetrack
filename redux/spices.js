@@ -15,20 +15,33 @@ export const spices = (
 			// case 'ADD_SPICE':
 			/* console.log('hello');
 			console.log(action.payload); */
-			let s = state.spices;
+			/* let listOfSpices = state.spices;
 			let spiceId = action.payload.spiceId;
-			for (let i = 0; i < s.length; i++) {
-				if (s[i].id === spiceId) {
+			for (let i = 0; i < listOfSpices.length; i++) {
+				if (listOfSpices[i].id === spiceId) {
 					// console.log('hi');
-					s[i].gotIt = action.payload.gotIt;
+					listOfSpices[i].gotIt = action.payload.gotIt;
 					let startDate = new Date().toString();
-					s[i].startDate = startDate;
+					listOfSpices[i].startDate = startDate;
 				}
-			}
-
-			return {
+			} */
+			/* 	console.log({
 				...state,
 				spices: s
+			}); */
+
+			let spiceId = action.payload.spiceId;
+			let listOfSpices = state.spices.map((spice) => {
+				if (spice.id == spiceId) {
+					spice.gotIt = action.payload.gotIt;
+					spice.startDate = new Date().toString();
+				}
+				return spice;
+			});
+			console.log(listOfSpices);
+			return {
+				...state,
+				spices: listOfSpices
 			};
 		default:
 			return state;

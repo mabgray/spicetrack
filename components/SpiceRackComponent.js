@@ -23,13 +23,13 @@ class SpiceRack extends Component {
 		this.setState({
 			spices: s
 		});
-		console.log(this.state.spices);
+		// console.log(this.state.spices);
 	};
 	static navigationOptions = {
 		title: 'My Spice Rack'
 	};
 	render() {
-		console.log(this.state);
+		// console.log(this.state);
 		return <Directory spices={this.props.spices} toggleSpice={this.toggleSpice} />;
 	}
 }

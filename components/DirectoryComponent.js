@@ -7,12 +7,12 @@ import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
+/* const mapStateToProps = (state) => {
 	return {
 		spices: state.spices
 	};
 };
-
+ */
 function Directory(props) {
 	const renderDirectoryItem = ({ item }) => {
 		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
@@ -110,4 +110,5 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default connect(mapStateToProps)(Directory);
+// export default connect(mapStateToProps)(Directory);
+export default Directory;
