@@ -23,7 +23,7 @@ function Directory(props) {
 		if (item.gotIt) {
 			console.log('gotit!');
 			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
-
+			//  comparing spices date to current date
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
 			if ('startDate' in item) {
 				let currentTime = new Date().getTime();
@@ -88,27 +88,6 @@ function Directory(props) {
 		</View>
 	);
 }
-
-/* const styles = StyleSheet.create({
-	deleteView: {
-		flexDirection: 'row',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-		flex: 1
-	},
-	deleteTouchable: {
-		backgroundColor: 'red',/*  
-		height: '100%',
-		justifyContent: 'center'
-	},
-	deleteText: {
-		color: 'white',
-		fontWeight: '700',
-		textAlign: 'center',
-		fontSize: 16,
-		width: 100
-	}
-}); */
 
 const styles = StyleSheet.create({
 	container: {

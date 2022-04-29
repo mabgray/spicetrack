@@ -21,15 +21,15 @@ const SpiceRackNavigator = createStackNavigator(
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
 			headerStyle: {
-				backgroundColor: '#5637DD'
+				backgroundColor: 'goldenrod'
 			},
-			headerTintColor: '#fff',
+			headerTintColor: 'eggnog',
 			headerTitleStyle: {
 				color: '#fff'
 			},
 			headerLeft: (
 				<Icon
-					name="home"
+					name="user-circle-o"
 					type="font-awesome"
 					iconStyle={styles.stackIcon}
 					onPress={() => navigation.toggleDrawer()}
@@ -46,7 +46,7 @@ const AddSpiceNavigator = createStackNavigator(
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
 			headerStyle: {
-				backgroundColor: '#5637DD'
+				backgroundColor: 'goldenrod'
 			},
 			headerTintColor: '#fff',
 			headerTitleStyle: {
@@ -54,7 +54,7 @@ const AddSpiceNavigator = createStackNavigator(
 			},
 			headerLeft: (
 				<Icon
-					name="info-circle"
+					name="plus-square"
 					type="font-awesome"
 					iconStyle={styles.stackIcon}
 					onPress={() => navigation.toggleDrawer()}
@@ -97,7 +97,7 @@ const MainNavigator = createDrawerNavigator(
 		}
 	},
 	{
-		drawerBackgroundColor: '#CEC8FF',
+		drawerBackgroundColor: 'goldenrod',
 		contentComponent: CustomDrawerContentComponent
 	}
 );
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	drawerHeader: {
-		backgroundColor: '#5637DD',
+		backgroundColor: '#C8A951',
 		height: 140,
 		alignItems: 'center',
 		justifyContent: 'center',
