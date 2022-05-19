@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Directory from './DirectoryComponent';
+import SpiceRackDirectory from './SpicerackDirectoryComponent';
 import { SPICES } from '../shared/spiceList';
 import { connect } from 'react-redux';
 
@@ -30,7 +30,7 @@ class SpiceRack extends Component {
 	};
 	render() {
 		// console.log(this.state);
-		return <Directory spices={this.props.spices} toggleSpice={this.toggleSpice} />;
+		return <SpiceRackDirectory spices={this.props.spices} toggleSpice={this.toggleSpice} />;
 	}
 }
 

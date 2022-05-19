@@ -7,10 +7,11 @@ import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 
-function Directory(props) {
+function SpiceRackDirectory(props) {
 	const renderDirectoryItem = ({ item }) => {
 		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
-
+		console.log(item);
+		console.log('hi');
 		let itemStyle = styles.item;
 		let expired = false;
 		if (item.gotIt) {
@@ -29,42 +30,42 @@ function Directory(props) {
 					expired = true;
 				}
 			}
-		}
-		let expiredmsg = '';
-		if (expired) {
-			expiredmsg = 'this item has probably expired. it is over a year old.';
-		}
-		return (
-			<View>
-				<Text style={itemStyle}>
-					<ListItem title={item.name} />
-					<TouchableOpacity
-						onPress={() =>
-							Alert.alert(
-								item.name,
-								'Do you want to add the spice ' + item.name + '?',
-								[
-									{
-										text: 'no',
-										onPress: () => props.toggleSpice(item.id, false),
-										style: 'cancel'
-									},
-									{
-										text: 'yes',
-										onPress: () => {
-											props.toggleSpice(item.id, true);
+			let expiredmsg = '';
+			if (expired) {
+				expiredmsg = 'this item has probably expired. it is over a year old.';
+			}
+			return (
+				<View>
+					<Text style={itemStyle}>
+						<ListItem title={item.name} />
+						<TouchableOpacity
+							onPress={() =>
+								Alert.alert(
+									item.name,
+									'Do you want to add the spice ' + item.name + '?',
+									[
+										{
+											text: 'no',
+											onPress: () => props.toggleSpice(item.id, false),
+											style: 'cancel'
+										},
+										{
+											text: 'yes',
+											onPress: () => {
+												props.toggleSpice(item.id, true);
+											}
 										}
-									}
-								],
-								{ cancelable: false }
-							)}
-					>
-						{icon}
-					</TouchableOpacity>
-					{expiredmsg}
-				</Text>
-			</View>
-		);
+									],
+									{ cancelable: false }
+								)}
+						>
+							{icon}
+						</TouchableOpacity>
+						{expiredmsg}
+					</Text>
+				</View>
+			);
+		}
 	};
 
 	return (
@@ -99,4 +100,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default Directory;
+export default SpiceRackDirectory;

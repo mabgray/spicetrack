@@ -7,6 +7,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import AddSpice from './AddSpiceComponent';
 import SpiceRack from './SpiceRackComponent';
+import Home from './HomeComponenet';
 import { addSpices } from '../redux/ActionCreator';
 import { connect } from 'react-redux';
 
@@ -64,6 +65,30 @@ const AddSpiceNavigator = createStackNavigator(
 	}
 );
 
+const HomeNavigator = createStackNavigator(
+	{
+		Home: { screen: Home }
+	},
+	{
+		defaultNavigationOptions: ({ navigation }) => ({
+			headerStyle: {
+				backgroundColor: 'goldenrod'
+			},
+			headerTintColor: 'eggnog',
+			headerTitleStyle: {
+				color: '#fff'
+			},
+			headerLeft: (
+				<Icon
+					name="user-circle-o"
+					type="font-awesome"
+					iconStyle={styles.stackIcon}
+					onPress={() => navigation.toggleDrawer()}
+				/>
+			)
+		})
+	}
+);
 const CustomDrawerContentComponent = (props) => (
 	<ScrollView>
 		<SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
@@ -79,6 +104,16 @@ const CustomDrawerContentComponent = (props) => (
 
 const MainNavigator = createDrawerNavigator(
 	{
+		Home: {
+			screen: HomeNavigator,
+			navigationOptions: {
+				drawerLabel: 'Home',
+				drawerIcon: ({ tintColor }) => (
+					<Icon name="plus-square" type="font-awesome" size={24} color={tintColor} />
+				)
+			}
+		},
+
 		AddSpice: {
 			screen: AddSpiceNavigator,
 			navigationOptions: {
