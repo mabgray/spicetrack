@@ -17,14 +17,19 @@ function Directory(props) {
 			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
 			//  comparing spices date to current date
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
+			// overriding itemStyle with styles.itemGotIt
 			if ('startDate' in item) {
 				let currentTime = new Date().getTime();
+				// getting current time from the date object
 				currentTime = Number(currentTime);
+				// this is where we are checking the date/time
 				let itemTime = new Date(item.startDate).getTime();
+				// the above is the item time converted to miliseconds but it is a string
 				itemTime = Number(itemTime);
 				let difference = currentTime - itemTime;
 
 				if (difference / 31536000000 >= 1) {
+					// this is a year in miliseconds
 					itemStyle = Object.assign({}, itemStyle, styles.expired);
 					expired = true;
 				}

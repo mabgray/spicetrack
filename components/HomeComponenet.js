@@ -4,10 +4,17 @@ import { Button } from 'react-native-elements';
 
 class Home extends Component {
 	render() {
+		const { navigate } = this.props.navigation;
+		console.log(navigate);
 		return (
 			<View>
 				<Text>SPICE TRACK</Text>
-				<Button>My Spice Rack</Button>
+				<Button
+					title="my spice rack"
+					onPress={() => {
+						navigate('SpiceRack');
+					}}
+				/>
 			</View>
 		);
 	}
