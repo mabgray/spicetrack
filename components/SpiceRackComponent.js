@@ -23,7 +23,6 @@ class SpiceRack extends Component {
 		this.setState({
 			spices: s
 		});
-		// console.log(this.state.spices);
 	};
 	static navigationOptions = {
 		title: 'My Spice Rack'

@@ -17,14 +17,14 @@ const mapDispatchToProps = {
 
 const SpiceRackNavigator = createStackNavigator(
 	{
-		Home: { screen: SpiceRack }
+		SpiceRack: { screen: SpiceRack }
 	},
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
 			headerStyle: {
-				backgroundColor: 'goldenrod'
+				backgroundColor: '#9FB1BCFF'
 			},
-			headerTintColor: 'eggnog',
+			headerTintColor: '#2E5266FF',
 			headerTitleStyle: {
 				color: '#fff'
 			},
@@ -47,7 +47,7 @@ const AddSpiceNavigator = createStackNavigator(
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
 			headerStyle: {
-				backgroundColor: 'goldenrod'
+				backgroundColor: '#6E8898FF'
 			},
 			headerTintColor: '#fff',
 			headerTitleStyle: {
@@ -72,9 +72,9 @@ const HomeNavigator = createStackNavigator(
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
 			headerStyle: {
-				backgroundColor: 'goldenrod'
+				backgroundColor: '#6E8898FF'
 			},
-			headerTintColor: 'eggnog',
+			headerTintColor: '#2E5266FF',
 			headerTitleStyle: {
 				color: '#fff'
 			},
@@ -132,7 +132,7 @@ const MainNavigator = createDrawerNavigator(
 		}
 	},
 	{
-		drawerBackgroundColor: 'goldenrod',
+		drawerBackgroundColor: '#6E8898FF',
 		contentComponent: CustomDrawerContentComponent
 	}
 );
@@ -140,6 +140,7 @@ const MainNavigator = createDrawerNavigator(
 const AppNavigator = createAppContainer(MainNavigator);
 
 class Main extends Component {
+	// this is where addspices is called
 	componentDidMount() {
 		this.props.addSpices();
 	}
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	drawerHeader: {
-		backgroundColor: '#C8A951',
+		backgroundColor: '#2E5266FF',
 		height: 140,
 		alignItems: 'center',
 		justifyContent: 'center',

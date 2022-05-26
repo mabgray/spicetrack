@@ -9,12 +9,12 @@ import { connect } from 'react-redux';
 
 function Directory(props) {
 	const renderDirectoryItem = ({ item }) => {
-		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
+		let icon = <Icon name="circle" type="font-awesome" color="#D3D0CBFF" raised reverse />;
 
 		let itemStyle = styles.item;
 		let expired = false;
 		if (item.gotIt) {
-			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
+			icon = <Icon name="check" type="font-awesome" color="#2E5266FF" raised reverse />;
 			//  comparing spices date to current date
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
 			// overriding itemStyle with styles.itemGotIt
@@ -37,7 +37,7 @@ function Directory(props) {
 		}
 		let expiredmsg = '';
 		if (expired) {
-			expiredmsg = 'this item has probably expired. it is over a year old.';
+			expiredmsg = 'This item has probably expired. It is over a year old.';
 		}
 		return (
 			<View>
@@ -97,10 +97,10 @@ const styles = StyleSheet.create({
 		fontSize: 25
 	},
 	itemGotIt: {
-		backgroundColor: 'green'
+		backgroundColor: '#52662e'
 	},
 	expired: {
-		backgroundColor: 'red'
+		backgroundColor: 'tomato'
 	}
 });
 

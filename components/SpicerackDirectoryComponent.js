@@ -9,13 +9,13 @@ import { connect } from 'react-redux';
 
 function SpiceRackDirectory(props) {
 	const renderDirectoryItem = ({ item }) => {
-		let icon = <Icon name="check" type="font-awesome" color="#f50" raised reverse />;
+		let icon = <Icon name="x" type="font-awesome" color="#D3D0CBFF" raised reverse />;
 		console.log(item);
 		console.log('hi');
 		let itemStyle = styles.item;
 		let expired = false;
 		if (item.gotIt) {
-			icon = <Icon name="check" type="font-awesome" color="#000090" raised reverse />;
+			icon = <Icon name="check" type="font-awesome" color="#2E5266FF" raised reverse />;
 			//  comparing spices date to current date
 			itemStyle = Object.assign({}, itemStyle, styles.itemGotIt);
 			if ('startDate' in item) {
@@ -32,7 +32,7 @@ function SpiceRackDirectory(props) {
 			}
 			let expiredmsg = '';
 			if (expired) {
-				expiredmsg = 'this item has probably expired. it is over a year old.';
+				expiredmsg = 'This item has probably expired. It is over a year old.';
 			}
 			return (
 				<View>
@@ -42,7 +42,7 @@ function SpiceRackDirectory(props) {
 							onPress={() =>
 								Alert.alert(
 									item.name,
-									'Do you want to add the spice ' + item.name + '?',
+									'Do you have this spice? ' + item.name + '?',
 									[
 										{
 											text: 'no',
@@ -93,10 +93,10 @@ const styles = StyleSheet.create({
 		fontSize: 25
 	},
 	itemGotIt: {
-		backgroundColor: 'green'
+		backgroundColor: '#52662e'
 	},
 	expired: {
-		backgroundColor: 'red'
+		backgroundColor: 'tomato'
 	}
 });
 

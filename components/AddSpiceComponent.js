@@ -21,6 +21,7 @@ class AddSpice extends Component {
 		title: 'Add A Spice'
 	};
 	render() {
+		// directory handles the click
 		return <Directory spices={this.props.spices} toggleSpice={this.toggleSpice} />;
 	}
 }
