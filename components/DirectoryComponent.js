@@ -40,9 +40,15 @@ function Directory(props) {
 			expiredmsg = 'This item has probably expired. It is over a year old.';
 		}
 		return (
-			<View>
+			<View style={styles.box}>
 				<Text style={itemStyle}>
-					<ListItem title={item.name} />
+					<ListItem
+						title={
+							<Text style={styles.spiceText} ellipsizeMode="tail" numberOfLines={1}>
+								{item.name}
+							</Text>
+						}
+					/>
 					<TouchableOpacity
 						onPress={() =>
 							Alert.alert(
@@ -75,9 +81,11 @@ function Directory(props) {
 	return (
 		<View style={styles.container}>
 			<FlatList
+				numColumns={3}
 				data={props.spices}
 				renderItem={renderDirectoryItem}
 				keyExtractor={(item) => item.id.toString()}
+				key={(item) => item.id}
 			/>
 		</View>
 	);
@@ -101,6 +109,12 @@ const styles = StyleSheet.create({
 	},
 	expired: {
 		backgroundColor: 'tomato'
+	},
+	box: {
+		width: '50%'
+	},
+	spiceText: {
+		width: '70%'
 	}
 });
 
