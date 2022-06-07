@@ -1,17 +1,17 @@
 export const SPICES = [
 	{
 		id: 0,
-		name: ' sea salt',
-		gotIt: false,
-		expired: false
+		name: ' sea salt'
+		/* gotIt: false,
+		expired: false */
 	},
 	{
 		id: 1,
-		name: 'black pepper',
-		gotIt: false,
-		expired: false
-	},
-	{
+		name: 'black pepper'
+		/* gotIt: false,
+		expired: false */
+	}
+	/* {
 		id: 2,
 		name: 'ginger',
 		gotIt: false,
@@ -299,5 +299,5 @@ export const SPICES = [
 		name: 'soy sauce',
 		gotIt: false,
 		expired: false
-	}
+	}*/
 ];
