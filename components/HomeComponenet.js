@@ -32,10 +32,13 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		paddingVertical: 12,
 		paddingHorizontal: 32,
-		borderRadius: 10,
 		elevation: 3,
 		backgroundColor: 'black',
-		width: 200
+		width: 200,
+		borderWidth: 1,
+		borderColor: 'black',
+		borderRadius: 10,
+		shadowOffset: { width: 0, height: 4 }
 	},
 	container: {
 		flex: 1,
