@@ -38,8 +38,9 @@ function Directory(props) {
 		if (expired) {
 			expiredmsg = 'This item has probably expired. It is over a year old.';
 		}
-		console.log(item.name);
+		console.log(item);
 		console.log(itemStyle);
+		console.log(expired);
 		return (
 			<View style={styles.box}>
 				<Text style={itemStyle}>

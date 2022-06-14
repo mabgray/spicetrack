@@ -25,7 +25,9 @@ export const spices = (
 				} else {
 					spicesList.push(action.payload[i]);
 				}
+				// spicesList.push(action.payload[i]);
 			}
+
 			return { ...state, spices: spicesList };
 
 		// we are importing the ActionTypes from above

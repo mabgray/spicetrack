@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SpiceRackDirectory from './SpicerackDirectoryComponent';
-import { SPICES } from '../shared/spiceList';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -8,21 +7,13 @@ const mapStateToProps = (state) => {
 		spices: state.spices
 	};
 };
+const mapDispatchToProps = {
+	addSpice: (spiceId, gotIt) => addSpice(spiceId, gotIt)
+};
 
 class SpiceRack extends Component {
 	toggleSpice = (spiceId, gotIt) => {
-		let s = this.props.spices;
-		for (let i = 0; i < s.length; i++) {
-			if (s[i].id === spiceId) {
-				s[i].gotIt = gotIt;
-				let startDate = new Date().toString();
-				s[i].startDate = startDate;
-			}
-		}
-
-		this.setState({
-			spices: s
-		});
+		this.props.addSpice(spiceId, gotIt);
 	};
 	static navigationOptions = {
 		title: 'My Spice Rack'
@@ -33,4 +24,4 @@ class SpiceRack extends Component {
 	}
 }
 
-export default connect(mapStateToProps)(SpiceRack);
+export default connect(mapStateToProps, mapDispatchToProps)(SpiceRack);
