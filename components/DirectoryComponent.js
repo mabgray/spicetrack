@@ -5,7 +5,6 @@ import { Icon } from 'react-native-elements';
 import { View, Alert } from 'react-native';
 import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { connect } from 'react-redux';
 
 function Directory(props) {
 	const renderDirectoryItem = ({ item }) => {
